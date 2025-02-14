@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://che1buu7lc5l2"]
+
+[ext_resource type="PackedScene" uid="uid://cqchg3sdocowf" path="res://scenes/Plane.tscn" id="1_8i1g0"]
+
+[node name="NewLevel" type="Node"]
+
+[node name="Plane" parent="." instance=ExtResource("1_8i1g0")]
+position = Vector2(38, 45)
