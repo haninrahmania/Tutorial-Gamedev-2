@@ -1,8 +1,78 @@
-[gd_scene load_steps=2 format=3 uid="uid://che1buu7lc5l2"]
+[gd_scene load_steps=7 format=3 uid="uid://che1buu7lc5l2"]
 
 [ext_resource type="PackedScene" uid="uid://cqchg3sdocowf" path="res://scenes/Plane.tscn" id="1_8i1g0"]
+[ext_resource type="Script" path="res://scenes/objective.gd" id="2_opq7e"]
+[ext_resource type="PackedScene" uid="uid://y5a4e3ajuy2r" path="res://scenes/StonePlatform.tscn" id="4_5f2jd"]
+[ext_resource type="Texture2D" uid="uid://dh610bbucs6rh" path="res://assets/fasilkom.png" id="5_hnbdt"]
+[ext_resource type="Texture2D" uid="uid://cq5yn6ecuv8qf" path="res://assets/meteorBrown_big1.png" id="6_3cdrr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bxut"]
+size = Vector2(138.75, 79)
 
 [node name="NewLevel" type="Node"]
 
 [node name="Plane" parent="." instance=ExtResource("1_8i1g0")]
-position = Vector2(38, 45)
+position = Vector2(810, 161)
+gravity_scale = 0.0
+
+[node name="Objective" type="Area2D" parent="."]
+position = Vector2(625, 848.5)
+script = ExtResource("2_opq7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objective"]
+position = Vector2(70.625, 40)
+shape = SubResource("RectangleShape2D_6bxut")
+
+[node name="SnowPlatform3" parent="." groups=["platforms"] instance=ExtResource("4_5f2jd")]
+position = Vector2(807, 553)
+
+[node name="SnowPlatform" parent="." groups=["platforms"] instance=ExtResource("4_5f2jd")]
+position = Vector2(443, 93)
+
+[node name="SnowPlatform4" parent="." groups=["platforms"] instance=ExtResource("4_5f2jd")]
+position = Vector2(1229, 168)
+
+[node name="SnowPlatform5" parent="." groups=["platforms"] instance=ExtResource("4_5f2jd")]
+position = Vector2(1164, 766)
+
+[node name="SnowPlatform6" parent="." groups=["platforms"] instance=ExtResource("4_5f2jd")]
+position = Vector2(610, 688)
+
+[node name="SnowPlatform2" parent="." groups=["platforms"] instance=ExtResource("4_5f2jd")]
+position = Vector2(370, 474)
+
+[node name="Fasilkom" type="Sprite2D" parent="."]
+position = Vector2(696, 918.5)
+texture = ExtResource("5_hnbdt")
+
+[node name="MeteorBrownBig1" type="Sprite2D" parent="."]
+position = Vector2(628, 346)
+texture = ExtResource("6_3cdrr")
+
+[node name="MeteorBrownBig2" type="Sprite2D" parent="."]
+position = Vector2(1001, 464)
+texture = ExtResource("6_3cdrr")
+
+[node name="MeteorBrownBig3" type="Sprite2D" parent="."]
+position = Vector2(361, 732)
+texture = ExtResource("6_3cdrr")
+
+[node name="MeteorBrownBig4" type="Sprite2D" parent="."]
+position = Vector2(990, 830)
+texture = ExtResource("6_3cdrr")
+
+[node name="MeteorBrownBig5" type="Sprite2D" parent="."]
+position = Vector2(195, 234)
+texture = ExtResource("6_3cdrr")
+
+[node name="MeteorBrownBig6" type="Sprite2D" parent="."]
+position = Vector2(1322, 414)
+texture = ExtResource("6_3cdrr")
+
+[node name="MeteorBrownBig7" type="Sprite2D" parent="."]
+position = Vector2(1362, 851)
+texture = ExtResource("6_3cdrr")
+
+[connection signal="body_entered" from="Plane" to="Plane" method="_on_Plane_body_entered"]
+[connection signal="body_entered" from="Objective" to="Objective" method="_on_ObjectiveArea_body_entered"]
+[connection signal="body_entered" from="Objective" to="Objective" method="_on_body_entered"]

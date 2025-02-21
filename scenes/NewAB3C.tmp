@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://che1buu7lc5l2"]
+
+[ext_resource type="PackedScene" uid="uid://cqchg3sdocowf" path="res://scenes/Plane.tscn" id="1_8i1g0"]
+[ext_resource type="Script" path="res://scenes/objective.gd" id="2_opq7e"]
+[ext_resource type="Script" path="res://scenes/platform.gd" id="3_7yc65"]
+[ext_resource type="PackedScene" uid="uid://y5a4e3ajuy2r" path="res://scenes/StonePlatform.tscn" id="4_5f2jd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bxut"]
+size = Vector2(138.75, 79)
+
+[node name="NewLevel" type="Node"]
+
+[node name="Plane" parent="." instance=ExtResource("1_8i1g0")]
+position = Vector2(87, 148)
+
+[node name="Objective" type="Area2D" parent="."]
+position = Vector2(158, 518)
+script = ExtResource("2_opq7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objective"]
+position = Vector2(70.625, 40)
+shape = SubResource("RectangleShape2D_6bxut")
+
+[node name="Platform" type="Node2D" parent="."]
+position = Vector2(35, 565)
+script = ExtResource("3_7yc65")
+
+[node name="StonePlatform" parent="Platform" instance=ExtResource("4_5f2jd")]
+
+[node name="StonePlatform2" parent="Platform" instance=ExtResource("4_5f2jd")]
+position = Vector2(70, 0)
+
+[connection signal="body_entered" from="Objective" to="Objective" method="_on_body_entered"]
+[connection signal="body_entered" from="Objective" to="Objective" method="_on_ObjectiveArea_body_entered"]

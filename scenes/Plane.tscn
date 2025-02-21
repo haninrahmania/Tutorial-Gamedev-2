@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqchg3sdocowf"]
+[gd_scene load_steps=4 format=3 uid="uid://cqchg3sdocowf"]
 
-[ext_resource type="Texture2D" uid="uid://dgrrg14sgp4f4" path="res://assets/playerShip1_blue.png" id="1_p12wb"]
+[ext_resource type="Script" path="res://scenes/plane.gd" id="1_hfh8g"]
+[ext_resource type="Texture2D" uid="uid://3ruxfsvp87ub" path="res://assets/playerShip1_green.png" id="2_cariq"]
 
-[node name="Plane" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lswhe"]
+size = Vector2(100.011, 77.4256)
 
-[node name="PlayerShip1Blue" type="Sprite2D" parent="."]
-texture = ExtResource("1_p12wb")
+[node name="Plane" type="RigidBody2D"]
+script = ExtResource("1_hfh8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lswhe")
+
+[node name="PlayerShip1Green" type="Sprite2D" parent="."]
+texture = ExtResource("2_cariq")
