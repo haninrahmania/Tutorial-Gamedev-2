@@ -7,3 +7,4 @@ func _ready():
 func _on_Objective_body_entered(body: RigidBody2D):
 	if (body.name == "Plane"):
 		print("You made it to class!!")
+		get_tree().reload_current_scene()

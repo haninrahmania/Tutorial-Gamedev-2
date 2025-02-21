@@ -7,3 +7,4 @@ res://scenes/StonePlatform.tscn
 res://scenes/Plane.tscn
 res://scenes/static_body_2d.tscn
 res://scenes/plane.gd
+res://scenes/ObjectiveArea.gd
